@@ -2,6 +2,8 @@
 
 Simple application to shorten URLs
 
+####Start to read the code from Use Cases.
+
 Use Cases:
 
 * Given a url and a SEO keyword retrieve a short url with the keyword as path <br/>
@@ -18,4 +20,4 @@ Use Cases:
   **result**: http://www.my.url.com/my_long_path
 
 
-Use an hexagonal architecture design to prepare the mysql storage implementation
+Used an hexagonal architecture design to prepare the mysql storage implementation
