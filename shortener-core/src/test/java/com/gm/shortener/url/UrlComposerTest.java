@@ -1,6 +1,7 @@
-package com.gm.shortener;
+package com.gm.shortener.url;
 
 import com.gm.shortener.path.URLPath;
+import com.gm.shortener.url.UrlComposer;
 import org.jmock.Expectations;
 import org.junit.Rule;
 import org.junit.Test;

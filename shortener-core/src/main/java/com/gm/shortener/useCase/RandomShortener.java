@@ -1,6 +1,6 @@
 package com.gm.shortener.useCase;
 
-import com.gm.shortener.UrlComposer;
+import com.gm.shortener.url.UrlComposer;
 import com.gm.shortener.path.RandomURLPath;
 import com.gm.shortener.path.URLPath;
 import com.gm.shortener.port.URLStorage;

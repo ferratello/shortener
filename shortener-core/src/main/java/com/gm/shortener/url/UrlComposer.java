@@ -1,4 +1,4 @@
-package com.gm.shortener;
+package com.gm.shortener.url;
 
 import com.gm.shortener.path.URLPath;
 
