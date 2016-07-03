@@ -13,27 +13,12 @@ abstract class Shortener
     this.urlRepository = urlRepository;
   }
 
-  public String getOriginal(String shortUrl){
+  public String getOriginal(String shortUrl)
+  {
     return urlRepository.fromShortUrl(shortUrl).originalUrl;
   }
 
-  Url retrieveOrInsertUrl(ShortenerRequest shortenerRequest)
-  {
-    Url returnUrl;
-    try
-    {
-      returnUrl = urlRepository.fromOriginalUrl(shortenerRequest.originalUrl);
-    }
-    catch(MissingUrlException muex)
-    {
-      returnUrl = createNewShortUrl(shortenerRequest);
-      urlRepository.persist(returnUrl);
-    }
-    return returnUrl;
-  }
-
   protected abstract Url createNewShortUrl(ShortenerRequest shortenerRequest);
-
 
   static class ShortenerRequest
   {
@@ -51,5 +36,20 @@ abstract class Shortener
       this.originalUrl = originalUrl;
       this.seoKeyword = null;
     }
+  }
+
+  Url retrieveOrInsertUrl(ShortenerRequest shortenerRequest)
+  {
+    Url returnUrl;
+    try
+    {
+      returnUrl = urlRepository.fromOriginalUrl(shortenerRequest.originalUrl);
+    }
+    catch(MissingUrlException muex)
+    {
+      returnUrl = createNewShortUrl(shortenerRequest);
+      urlRepository.persist(returnUrl);
+    }
+    return returnUrl;
   }
 }

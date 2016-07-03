@@ -23,7 +23,7 @@ public class MysqlURLDaoTest
   public static void setUpClass()
   {
     embeddedMysql.start();
-    embeddedMysql.initDB("init-shoertener-db.sql");
+    embeddedMysql.initDB("init-shortener-db.sql");
   }
 
   @AfterClass

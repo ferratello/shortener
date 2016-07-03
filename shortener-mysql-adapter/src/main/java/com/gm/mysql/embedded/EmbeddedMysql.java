@@ -28,7 +28,7 @@ public class EmbeddedMysql
   public void start()
   {
     mysqldResource = new MysqldResource(new File("/tmp", dbName));
-    Map<String, String> databaseOptions = new HashMap<String, String>();
+    Map<String, String> databaseOptions = new HashMap<>();
     databaseOptions.put(MysqldResourceI.PORT, Integer.toString(port));
     mysqldResource.start("embedded-mysqld-thread-" + System.currentTimeMillis(), databaseOptions);
     if(!mysqldResource.isRunning())
@@ -37,7 +37,6 @@ public class EmbeddedMysql
     }
   }
 
-//  @TODO change DB initialization
   public void initDB(String sqlPath)
   {
     MysqlDataSource  dataSource = new MysqlDataSource();
@@ -104,7 +103,7 @@ public class EmbeddedMysql
     }
   }
 
-  public void execute(String populateSQL, DataSource dataSource)
+  private void execute(String populateSQL, DataSource dataSource)
   {
     Connection connection = null;
     PreparedStatement statement = null;

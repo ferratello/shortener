@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class RandomShortenerIT
 {
-  private final URLStorage urlStorage = new InMemoryURLStorage(new HashMap<String, String>());
+  private final URLStorage urlStorage = new InMemoryURLStorage(new HashMap<>());
   private final RandomShortener underTest = new RandomShortener(urlStorage);
 
   @Test

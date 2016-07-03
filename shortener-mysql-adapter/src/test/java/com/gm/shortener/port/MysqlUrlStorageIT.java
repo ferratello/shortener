@@ -42,14 +42,14 @@ public class MysqlUrlStorageIT extends URLRepositoryContractTest
   protected String getOriginalUrlFromPersistence()
   {
     List<Map<String, String>> result = embeddedMysql.query("SELECT ORIGINAL_URL FROM URLS WHERE SHORT_URL= \"" + TEST_SHORT_URL + "\"",
-                                                          dataSource);
+                                                           dataSource);
     return result.get(0).get("ORIGINAL_URL");
   }
 
   @Override
   protected void innerSetup()
   {
-    embeddedMysql.initDB("init-shoertener-db.sql");
+    embeddedMysql.initDB("init-shortener-db.sql");
     dataSource = new DataSourceBuilder().withDbName(DB_NAME).withPort(PORT).build();
   }
 

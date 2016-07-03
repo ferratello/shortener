@@ -5,8 +5,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Scanner;
 
 
 class EmbeddedMysqlFileSystem
@@ -18,7 +22,7 @@ class EmbeddedMysqlFileSystem
     String initSql;
     try
     {
-      initSql = new String(Files.readAllBytes(Paths.get(getClass().getClassLoader().getResource(sqlPath).toURI())));
+      initSql = new Scanner(ClassLoader.getSystemResourceAsStream(sqlPath), "UTF-8").useDelimiter("\\A").next();
     }
     catch(Exception e)
     {
