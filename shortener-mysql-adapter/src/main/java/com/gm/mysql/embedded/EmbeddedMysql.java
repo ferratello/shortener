@@ -27,7 +27,7 @@ public class EmbeddedMysql
 
   public void start()
   {
-    mysqldResource = new MysqldResource(new File("/tmp", dbName));
+    mysqldResource = new MysqldResource(new File("/tmp/shortener_db/", dbName));
     Map<String, String> databaseOptions = new HashMap<>();
     databaseOptions.put(MysqldResourceI.PORT, Integer.toString(port));
     mysqldResource.start("embedded-mysqld-thread-" + System.currentTimeMillis(), databaseOptions);
