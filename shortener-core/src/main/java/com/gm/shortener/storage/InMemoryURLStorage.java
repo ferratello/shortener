@@ -36,11 +36,4 @@ public class InMemoryURLStorage implements URLStorage
     urlMap.put(url.shortUrl, url.originalUrl);
   }
 
-  public static class MissingUrlException extends RuntimeException
-  {
-    public MissingUrlException(String message)
-    {
-      super(message + " not present");
-    }
-  }
 }

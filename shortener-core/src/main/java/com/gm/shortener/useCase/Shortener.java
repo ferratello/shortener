@@ -1,7 +1,7 @@
 package com.gm.shortener.useCase;
 
-import com.gm.shortener.storage.InMemoryURLStorage;
 import com.gm.shortener.port.URLStorage;
+import com.gm.shortener.storage.MissingUrlException;
 import com.gm.shortener.storage.Url;
 
 abstract class Shortener
@@ -24,7 +24,7 @@ abstract class Shortener
     {
       returnUrl = urlRepository.fromOriginalUrl(shortenerRequest.originalUrl);
     }
-    catch(InMemoryURLStorage.MissingUrlException muex)
+    catch(MissingUrlException muex)
     {
       returnUrl = createNewShortUrl(shortenerRequest);
       urlRepository.persist(returnUrl);

@@ -1,6 +1,6 @@
 package com.gm.shortener.port;
 
-import com.gm.shortener.storage.InMemoryURLStorage;
+import com.gm.shortener.storage.MissingUrlException;
 import com.gm.shortener.storage.Url;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,52 +11,53 @@ import static org.junit.Assert.*;
 
 public abstract class URLRepositoryContractTest
 {
-  private URLStorage urlRepository;
+  protected static final String TEST_SHORT_URL = "http://short.com/aBc1";
+  private URLStorage urlStorage;
 
   @Before
   public void setUp()
   {
     innerSetup();
-    urlRepository = createUrlStorage();
+    urlStorage = createUrlStorage();
   }
 
   @Test
   public void shortUrlPresent()
   {
-    assertThat(urlRepository.fromShortUrl("http/short.com/Abc1").originalUrl, is("http://www.my.url.com/my_long_path"));
+    assertThat(urlStorage.fromShortUrl("http/short.com/Abc1").originalUrl, is("http://www.my.url.com/my_long_path"));
   }
 
   @Test
   public void originalUrlPresent()
   {
-    assertThat(urlRepository.fromOriginalUrl("http://www.my.url.com/my_long_path").shortUrl, is("http/short.com/Abc1"));
+    assertThat(urlStorage.fromOriginalUrl("http://www.my.url.com/my_long_path").shortUrl, is("http/short.com/Abc1"));
   }
 
-  @Test(expected = InMemoryURLStorage.MissingUrlException.class)
+  @Test(expected = MissingUrlException.class)
   public void originalUrlNotPresent()
   {
-    urlRepository.fromOriginalUrl("Not.pesent.url");
+    urlStorage.fromOriginalUrl("Not.pesent.url");
   }
 
-  @Test(expected = InMemoryURLStorage.MissingUrlException.class)
+  @Test(expected = MissingUrlException.class)
   public void shortUrlNotPresent()
   {
-    urlRepository.fromShortUrl("Not.pesent.url");
+    urlStorage.fromShortUrl("Not.pesent.url");
   }
 
   @Test
   public void saveUrl()
   {
-    Url url = new Url("http://short.com/aBc1", "http://my.long.url/path");
+    Url url = new Url(TEST_SHORT_URL, "http://my.long.url/path");
 
-    urlRepository.persist(url);
+    urlStorage.persist(url);
 
-    assertThat(getUrlFromPersistence(), is(equalTo("http://my.long.url/path")));
+    assertThat(getOriginalUrlFromPersistence(), is(equalTo("http://my.long.url/path")));
   }
 
   protected abstract URLStorage createUrlStorage();
 
-  protected abstract String getUrlFromPersistence();
+  protected abstract String getOriginalUrlFromPersistence();
 
   protected abstract void innerSetup();
 

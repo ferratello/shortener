@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS `URLS` ;
+CREATE TABLE `URLS` (
+  `ORIGINAL_URL` varchar(255) NOT NULL DEFAULT '',
+  `SHORT_URL` varchar(64) NOT NULL DEFAULT '',
+  PRIMARY KEY (`ORIGINAL_URL`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO URLS VALUES ("http://www.my.url.com/my_long_path", "http/short.com/Abc1");
+

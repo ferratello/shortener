@@ -15,9 +15,9 @@ public class InMemoryURLStorageTest extends URLRepositoryContractTest
     return new InMemoryURLStorage(urlMap);
   }
 
-  protected String getUrlFromPersistence()
+  protected String getOriginalUrlFromPersistence()
   {
-    return urlMap.get("http://short.com/aBc1");
+    return urlMap.get(TEST_SHORT_URL);
   }
 
   protected void innerSetup()

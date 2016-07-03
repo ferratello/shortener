@@ -13,7 +13,7 @@ Use Cases:
   eg: **url**: http://www.my.url.com/my_long_path_for_random <br/>
   **result**: http://short.com/a3Cg
 * Given an existent url retrieve the same short url
-* Given a short url retrieve the relative original url <br/>
+* Given a short url retrieve the relative originalUrl url <br/>
   eg: **short url**: http://short.com/a3Cg <br/>
   **result**: http://www.my.url.com/my_long_path_for_random <br/>
   or  **short url**: http://short.com/MY_KEY <br/>

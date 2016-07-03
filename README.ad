@@ -11,7 +11,7 @@ Use Cases:
  eg: *url*: http://www.my.url.com/my_long_path_for_random +
  *result*: http://short.com/a3Cg
 * Given an existent url retrieve the same short url
-* Given a short url retrieve the relative original url +
+* Given a short url retrieve the relative originalUrl url +
   eg: *short url*: http://short.com/a3Cg +
   *result*: http://www.my.url.com/my_long_path_for_random +
   or  *short url*: http://short.com/MY_KEY +
