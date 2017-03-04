@@ -1,9 +1,9 @@
-# Simple URL Shortener
+# Simple URL Shortener exercise
 
 Simple application to shorten URLs
 
 ##Installation.
-Build the application 
+Build the application
   ```bash
   mvn clean package
   ```
@@ -31,7 +31,7 @@ The **REST** service is implemented using _spring-mvc_
 
 * Given a url and a SEO keyword retrieve a short url with the keyword as path <br/>
   eg: **url**: http://www.my.url.com/my_long_path **seo_keyword**: MY_KEY <br/>
-  **result**: http://short.com/MY_KEY 
+  **result**: http://short.com/MY_KEY
 * Given a url only retrieve a short url with a random 4 alphanumeric chars path <br/>
   eg: **url**: http://www.my.url.com/my_long_path_for_random <br/>
   **result**: http://short.com/a3Cg
